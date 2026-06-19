@@ -1,12 +1,9 @@
 ﻿
-using Anthropic;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OpenAI.Chat;
 using PrimerChatbot;
 using PrimerChatbot.Chatbots;
-using System.Text;
 
 Utilidades.CargarVariablesDeAmbiente();
 
@@ -20,7 +17,7 @@ var modelo = args.Length > 1 ? args[1] : modeloPorDefecto;
 Console.WriteLine($"{proveedor}: {modelo}");
 
 var builder = Host.CreateApplicationBuilder(args);
-Startup.ConfigureServices(builder, proveedor, modelo);
+builder.Services.AddPrimerChatbot(proveedor, modelo);
 var host = builder.Build();
 
 var chatClient = host.Services.GetRequiredService<IChatClient>();
