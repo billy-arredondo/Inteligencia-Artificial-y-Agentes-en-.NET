@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace PrimerChatbot;
 
-namespace PrimerChatbot;
-
-internal class Utilidades
+internal static class Utilidades
 {
     internal static void CargarVariablesDeAmbiente()
     {
